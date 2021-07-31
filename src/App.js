@@ -9,7 +9,13 @@ function App() {
     return (
         <div className="App">
             <Container className="mellow-yellow">
-                <Button handleClick={buttonClick}>Click</Button>
+                <Button
+                    handleClick={buttonClick}
+                    type="button"
+                    variant="danger"
+                >
+                    Click
+                </Button>
             </Container>
         </div>
     )
