@@ -1,14 +1,15 @@
 import './App.scss'
-import Button from 'react-bootstrap/Button'
+import Button from './components/common/Button'
 import Container from 'react-bootstrap/Container'
 
 function App() {
+    const buttonClick = () => {
+        console.log('clicked')
+    }
     return (
         <div className="App">
             <Container className="mellow-yellow">
-                <Button type="button" variant="primary">
-                    Click
-                </Button>
+                <Button handleClick={buttonClick}>Click</Button>
             </Container>
         </div>
     )
