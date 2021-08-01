@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './LandingPage.scss';
+import { Redirect } from 'react-router-dom';
 
 const LandingPage = () => {
     const [displayOptions, setDisplayOptions] = useState(false);
     const [wasToggled, setWasToggled] = useState(false);
+    const [sendLogin, setSendLogin] = useState(false);
 
     const toggleDisplayOptions = (state) => {
         console.log('toggle display options');
@@ -15,6 +17,7 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page-background">
+            {sendLogin && <Redirect to="/login" />}
             <div
                 className="mouse-enter-leave-container"
                 onMouseEnter={() => toggleDisplayOptions(true)}
@@ -22,7 +25,10 @@ const LandingPage = () => {
             >
                 {displayOptions ? (
                     <div className="main-title-wrapper">
-                        <div className="main-title main-title-game">
+                        <div
+                            className="main-title main-title-game"
+                            onClick={() => setSendLogin(true)}
+                        >
                             Tic Tac Toe
                         </div>
                     </div>
