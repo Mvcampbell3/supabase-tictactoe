@@ -1,0 +1,9 @@
+@import './variables';
+
+@mixin page-background-base {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-color: $primary-background-color;
+    color: $primary-text-color;
+}

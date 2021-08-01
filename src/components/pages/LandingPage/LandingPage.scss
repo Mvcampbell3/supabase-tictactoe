@@ -1,0 +1,6 @@
+@import '../../../styles/index';
+
+.landing-page-background {
+    @include page-background-base;
+    background-color: $primary-background-color;
+}

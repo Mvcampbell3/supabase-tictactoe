@@ -1,24 +1,12 @@
-import './App.scss'
-import Button from './components/common/Button'
-import Container from 'react-bootstrap/Container'
+import './App.scss';
+import Routes from './Routes';
 
 function App() {
-    const buttonClick = () => {
-        console.log('clicked')
-    }
     return (
         <div className="App">
-            <Container className="mellow-yellow">
-                <Button
-                    handleClick={buttonClick}
-                    type="button"
-                    variant="danger"
-                >
-                    Click
-                </Button>
-            </Container>
+            <Routes />
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
