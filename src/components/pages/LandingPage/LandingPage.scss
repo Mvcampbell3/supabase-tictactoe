@@ -1,6 +1,69 @@
-@import '../../../styles/index';
+@import '../../../styles/mixins';
+
+$animation-duration: 0.3s;
+$animation-delay: 0.25s;
+$animation-deley-increment: 0.07s;
+
+$x-distance: -5px;
+$y-distance: 15px;
 
 .landing-page-background {
     @include page-background-base;
-    background-color: $primary-background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mouse-enter-leave-container {
+        width: 600px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .main-title-wrapper {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .main-title {
+                position: relative;
+                font-size: 40px;
+
+                margin-right: 8px;
+
+                @for $i from 1 to 8 {
+                    &.main-title-#{$i} {
+                        opacity: 0;
+                        transform: translate($x-distance, $y-distance);
+
+                        animation-name: word-fade-in;
+                        animation-duration: $animation-duration;
+                        animation-fill-mode: forwards;
+                        animation-delay: $animation-delay +
+                            ($animation-deley-increment * $i);
+                        animation-timing-function: ease-in-out;
+                    }
+                }
+
+                &.main-title-game {
+                    border: 1px #eee solid;
+                    padding: 4px 20px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@keyframes word-fade-in {
+    0% {
+        opacity: 0;
+        transform: translate($x-distance, $y-distance);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
 }
